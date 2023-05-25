@@ -112,6 +112,12 @@ def main(args):
                 time.sleep(15)
                 upload_results = update_results(upload_results, config)
                 live.update(generate_table(upload_results))
+                
+                # Exit cleanly if all files have statuses of processed or a status that contains the string "Failed"
+                if all(row[2] == "processed" or "Failed" in row[2] for row in upload_results):
+                    print("\nAll files have been processed. Exiting.\n")
+                    sys.exit(0)
+
     except KeyboardInterrupt:
         print("\nGoodbye!")
         sys.exit(0)
