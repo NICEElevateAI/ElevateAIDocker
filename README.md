@@ -33,9 +33,11 @@ Build the image
 docker build -t elevateai/elevateai:latest .
 ```
 
+### Run
+
 Place the audio files in a directory. Pass in the audio files directory and config.json.
 
-Use the following to either run the build above or pull from Docker Hub:
+Run the build above:
 
 ```sh
 docker run --tty --rm --name elevateai \
